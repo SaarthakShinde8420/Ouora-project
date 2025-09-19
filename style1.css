@@ -1,0 +1,117 @@
+/*whole document*/
+*{
+    font-family: cursive;
+}
+/*two elements together*/
+h3,
+h1{
+    color: #B92b27;
+}
+/*id*/
+#login{
+    background-color: white;
+}
+#signup{
+    background-color: #B92b27;
+    color: white;
+}
+/*class*/
+.upvote{
+    background-color: green;
+    color: wheat;
+}
+/*descendent selector(pahile baap ka naam likho phir bete ka likho beta ko property mil jayegi 
+(a comes in p there p is baap and a is beta)) sirf a nai likh suckte coz navigation mai bhi a hai
+and we don't want ki nav. wale a ko property mile
+using p(para. tag) is not that good aayega jake problem ho suckta hai toh hume jinte p chayye
+utno ko class deke ye descendent selector wala use karo*/
+.follow a{
+    color: purple;
+    background-color: black;
+}
+/*same descendent selector wala */
+nav ul li a{
+    color:greenyellow;
+    background-color: black;
+}
+/*combenator (agar two elements ek dusre ke "turant" "immediately " baad aa rahe ho and they are siblings then
+ combenator is used) p come befor h3 comes after and we want to give an underline to h3 thing 
+ then v will write p + h3 {
+                           .....                           
+                            }*/
+ p + h3{
+    text-decoration: underline;
+ }
+.upvote + button {
+    background-color: cornflowerblue;
+    color:red;
+}
+/* child combenator (agar ek element dusre ke "turant" "immediately " andar aa raha  ho and their is a parent
+ child relation blw them then child combenator is used) input comes in div and we want to give some property to give
+ some property  to input thing then v will write div > input {.....}*/
+ div > input{
+    /*background-color: lightgreen;*/
+ }
+ /*Attribute selector(write the thing then in square brackets first write the attribute then with = write the 
+ value of that attribute then write whatever prop. u want to give )*/
+ /*Method 1 (attribute + value)*/
+ input[type=text]{
+    color: red;
+ }
+ input[type=password]{
+    color: green;
+ }
+ /*Method 2 (only attribute)*/
+ input[type]{
+    background-color:mediumaquamarine;
+ }
+ /*Pseudo Class(write the name of element : the state (Pseudo class) your want that element to show property)*/
+ button:hover{
+    background-color: black;
+    color: white;
+ }
+h3:hover{
+    text-decoration: overline;
+}
+button:active{
+    background-color: pink;
+}
+p:active{
+    font-weight: bold;
+    color: green;
+}
+input[type=radio]:checked + label{
+    color: green;
+    font-weight: bolder;
+}
+/*nth-of-type(pseudo code used for giving property to thing which are coming in in particular order)*/
+div:nth-of-type(2n){
+    background-color: burlywood;
+}
+/*Pseudo Element(write the name of element :: the part (Pseudo element) you want to certain property)*/
+h1::first-letter{
+    color: rgb(21, 119, 158);
+}
+p::first-line{
+    color: red;
+}
+p::selection{
+    background: black;
+    color: white;
+}
+/*Selector Specificity(priority order for giving property = id > class > element
+                       Specificity = _________ _________ _________ (three digit no.)
+                                       id      class,    element,
+                                               pseudo    pseudo 
+                                               class,    element
+                                               attribu-
+                                               -te
+If specificity is same then cascading is used for giving property(jo baad mai likha vo mana jayega)
+Priority priority order for giving property = Inline  Specificity(html mai hi agar style dedi to vo wali  Specificity) >  Specificity
+                            
+                           ________ _________ _________ _________ (four digit no.)
+                           inline     id       class,    element,
+                           specifi-            pseudo    pseudo 
+                           city                class,    element
+                                               attribu-
+                                               -te)
